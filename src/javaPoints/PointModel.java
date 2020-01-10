@@ -1,18 +1,30 @@
 package javaPoints;
 
+import java.util.Vector;
+
 public class PointModel {
 	
 	int diffPointsToWin;
-	int numberOfPLayers;
+
+	Vector<Player> players;
 	
 	
-	public PointModel(int numberOfPlayers, int diffPointsToWin) {
-		this.numberOfPLayers = numberOfPlayers;
+	public PointModel(int diffPointsToWin) {
+
 		this.diffPointsToWin = diffPointsToWin;
 	}
-	
-	public int getNumberOfPlayers() {
-		return numberOfPLayers;
+
+	public void addPlayer(Player player){
+		players.add(player);
 	}
+
+	public Player checkWinner(){
+
+		return null;
+	}
+
+
+
+
 
 }
