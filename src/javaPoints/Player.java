@@ -11,6 +11,7 @@ public class Player {
 
     public Player(String playerName){
         this.playerName = playerName;
+        playerPoints = new Vector<Integer>();
     }
 
     public int getSumPoints(){
@@ -26,6 +27,7 @@ public class Player {
         playerPoints.add(points);
 
         updatePlayerPoints();
+        System.out.println(sumPoints + "  " + playerName);
 
     }
 
