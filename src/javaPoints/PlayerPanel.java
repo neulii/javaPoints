@@ -9,7 +9,8 @@ public class PlayerPanel extends JPanel {
     public PlayerPanel(Player player,int width, int height){
 
         playerNameLabel = new JLabel(player.getPlayerName());
-        playerNameLabel.setSize(width, height);
+        this.setSize(width, height);
+        playerNameLabel.setSize(width,30);
 
         this.add(playerNameLabel);
     }

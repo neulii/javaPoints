@@ -10,10 +10,11 @@ public class Controller {
 		this.model = new PointModel(1000);
 		this.window = new MainWindow(model);
 
-		window.addPlayerField(new Player("stefan"));
+		window.addPlayersFields(model.getPlayers());
 
 
-		System.out.println("fertig");
+
+
 
 
 

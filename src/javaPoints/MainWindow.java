@@ -13,8 +13,9 @@ public class MainWindow {
 
 		this.model = model;
 		playerFields= new Vector<>();
-
 		initializeWindow();
+
+
 	}
 
 	public void initializeWindow(){
@@ -25,17 +26,14 @@ public class MainWindow {
 		window.setLayout(null);
 		window.setLocationRelativeTo(null);
 
-		System.out.println(model);
-
 		window.setVisible(true);
 		
 	}
 
-	public void addPlayerField(Player player){
+	public void addPlayersFields(Vector<Player> players) {
 
-
-
-
+		int numberOfPlayers = players.size();
+		//TODO hier weitermachen
 
 
 	}
