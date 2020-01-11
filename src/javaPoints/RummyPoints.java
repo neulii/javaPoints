@@ -3,17 +3,9 @@ package javaPoints;
 public class RummyPoints {
 
 	Controller controller;
-	MainWindow window;
-	PointModel model;
-	
-	
-	public RummyPoints() {
-		
-		model = new PointModel(1000);
-		window = new MainWindow();
-		
-		controller = new Controller(model, window);
 
+	public RummyPoints() {
+		controller = new Controller();
 	}
 	
 	public static void main(String[] args) {

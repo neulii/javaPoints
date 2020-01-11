@@ -4,12 +4,12 @@ import java.util.Vector;
 
 public class PointModel {
 	
-	int diffPointsToWin;
-	int playedRounds;
-	boolean playersAreRanked = false;
+	private int diffPointsToWin;
+	private int playedRounds;
+	private boolean playersAreRanked = false;
 
-	Vector<Player> players;
-	Vector<Player> playersRanked;
+	private Vector<Player> players;
+	private Vector<Player> playersRanked;
 
 	public PointModel(int diffPointsToWin) {
 
@@ -69,7 +69,6 @@ public class PointModel {
 		}
 	}
 
-
 	public Player checkWinner(){
 		Player winner;
 
@@ -87,6 +86,10 @@ public class PointModel {
 		}
 
 		return null;
+	}
+
+	Vector<Player> getPlayers(){
+		return players;
 	}
 
 }

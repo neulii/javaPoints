@@ -5,32 +5,18 @@ public class Controller {
 	private PointModel model;
 	private MainWindow window;
 	
-	public Controller(PointModel model, MainWindow window) {
+	public Controller() {
 		
-		this.model = model;
-		this.window = window;
+		this.model = new PointModel(1000);
+		this.window = new MainWindow(model);
+
+		window.addPlayerField(new Player("stefan"));
 
 
-		model.addPlayer(new Player("stefan"));
-		model.addPlayer(new Player("herbert"));
-		model.addPlayer(new Player("superneuli"));
-		model.addPlayer(new Player("schatz"));
+		System.out.println("fertig");
 
 
 
-		model.addPoints(30,45,0,1000);
-		model.addPoints(100,55,40,1);
-		model.addPoints(10,2,500,3);
-		model.addPoints(144,222,55,4);
-
-		model.rankPlayers();
-
-		Player winner = model.checkWinner();
-
-		if(winner!=null)
-			System.out.println(winner.getPlayerName());
-		else
-			System.out.println("kein gewinner");
 
 
 
