@@ -21,11 +21,16 @@ public class Controller {
 		model.addPoints(30,45,0,1000);
 		model.addPoints(100,55,40,1);
 		model.addPoints(10,2,500,3);
-		model.addPoints(144,222,55,5000);
+		model.addPoints(144,222,55,4);
 
-
-		//TEST COMMIT
 		model.rankPlayers();
+
+		Player winner = model.checkWinner();
+
+		if(winner!=null)
+			System.out.println(winner.getPlayerName());
+		else
+			System.out.println("kein gewinner");
 
 
 

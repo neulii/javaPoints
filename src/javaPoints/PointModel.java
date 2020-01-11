@@ -9,7 +9,6 @@ public class PointModel {
 	boolean playersAreRanked = false;
 
 	Vector<Player> players;
-
 	Vector<Player> playersRanked;
 
 	public PointModel(int diffPointsToWin) {
@@ -39,16 +38,12 @@ public class PointModel {
 			}
 
 			playersAreRanked = false;
-
 		}
 		else
 		{
 			System.out.println("keine player -> bitte erst player erstellen");
 
 		}
-
-
-
 	}
 
 	public void rankPlayers(){
@@ -75,15 +70,21 @@ public class PointModel {
 	}
 
 
-	//TODO check winner must be implemented
 	public Player checkWinner(){
+		Player winner;
 
 		if(players.size()<2){
 			System.out.println("zuwenige spieler");
 			return null;
 		}
 
+		int pointDiff = playersRanked.elementAt(0).getSumPoints()-playersRanked.elementAt(1).getSumPoints();
+		pointDiff = Math.abs(pointDiff);
 
+		if(pointDiff>=diffPointsToWin){
+			winner = playersRanked.elementAt(0);
+			return winner;
+		}
 
 		return null;
 	}
