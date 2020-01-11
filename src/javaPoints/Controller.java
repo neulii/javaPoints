@@ -23,7 +23,10 @@ public class Controller {
 		model.addPoints(10,2,500,3);
 		model.addPoints(144,222,55,5000);
 
+
+		//TEST COMMIT
 		model.rankPlayers();
+
 
 
 	}
