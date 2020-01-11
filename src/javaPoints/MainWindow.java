@@ -7,12 +7,12 @@ public class MainWindow {
 
 	private PointModel model;
 	private JFrame window;
-	private Vector<JLabel> playerNames;
+	private Vector<PlayerPanel> playerFields;
 
 	public MainWindow(PointModel model) {
 
 		this.model = model;
-		playerNames = new Vector<>();
+		playerFields= new Vector<>();
 
 		initializeWindow();
 	}
@@ -32,23 +32,7 @@ public class MainWindow {
 	}
 
 	public void addPlayerField(Player player){
-		JLabel tempPlayer = new JLabel(player.getPlayerName());
 
-		int labelWidth = 0;
-
-		if(playerNames.size()==0)
-			labelWidth = window.getWidth();
-		else
-			labelWidth = window.getWidth()/(playerNames.size());
-
-		tempPlayer.setSize(labelWidth,30);
-		tempPlayer.setHorizontalAlignment(SwingConstants.CENTER);
-		window.add(tempPlayer);
-		playerNames.add(tempPlayer);
-
-		//TODO calculate new Positions
-
-		window.revalidate();
 
 
 
