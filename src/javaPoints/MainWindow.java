@@ -1,6 +1,7 @@
 package javaPoints;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.Vector;
 
 public class MainWindow {
@@ -8,13 +9,13 @@ public class MainWindow {
 	private PointModel model;
 	private JFrame window;
 	private Vector<PlayerPanel> playerFields;
+	private JLabel leadingPoints;
 
 	public MainWindow(PointModel model) {
 
 		this.model = model;
 		playerFields= new Vector<PlayerPanel>();
 		initializeWindow();
-
 
 	}
 
@@ -24,8 +25,22 @@ public class MainWindow {
 		window.setSize(800, 500);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		window.setLayout(null);
-		window.setLocationRelativeTo(null);
 
+		leadingPoints = new JLabel("0");
+		leadingPoints.setSize(window.getWidth(),100);
+		leadingPoints.setHorizontalAlignment(SwingConstants.CENTER);
+		leadingPoints.setVerticalAlignment(SwingConstants.CENTER);
+		//leadingPoints.setBackground(Color.blue);
+		leadingPoints.setOpaque(true);
+		leadingPoints.setFont(new Font("Dialog.bold", Font.PLAIN, 30));
+		leadingPoints.setLocation(0,0);
+
+		window.add(leadingPoints);
+
+
+
+
+		window.setLocationRelativeTo(null);
 		window.setVisible(true);
 		
 	}
@@ -49,10 +64,6 @@ public class MainWindow {
 		}
 		else
 			System.out.println("too few players");
-
-
-
-
 
 	}
 }
