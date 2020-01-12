@@ -12,7 +12,7 @@ public class MainWindow {
 	public MainWindow(PointModel model) {
 
 		this.model = model;
-		playerFields= new Vector<>();
+		playerFields= new Vector<PlayerPanel>();
 		initializeWindow();
 
 
@@ -32,8 +32,26 @@ public class MainWindow {
 
 	public void addPlayersFields(Vector<Player> players) {
 
-		int numberOfPlayers = players.size();
-		//TODO hier weitermachen
+		if(players.size()>1){
+			int topOffset = 100;
+			int height = 30;
+			int numberOfPlayers = players.size();
+			int width = window.getWidth()/numberOfPlayers;
+
+			//For every player
+			for (int i = 0; i<numberOfPlayers; i++){
+				PlayerPanel tempPanel = new PlayerPanel(players.elementAt(i),width,height);
+				tempPanel.setLocation(i*width,topOffset);
+				playerFields.add(tempPanel);
+
+				window.add(tempPanel);
+			}
+		}
+		else
+			System.out.println("too few players");
+
+
+
 
 
 	}
