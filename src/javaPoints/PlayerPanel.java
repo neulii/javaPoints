@@ -10,6 +10,7 @@ public class PlayerPanel extends JPanel {
     private JLabel playerPointsLabel;
     private JTextField pointsInput;
 
+
     Border nameLabelBorder;
 
     public PlayerPanel(Player player,float width, float height){
@@ -39,8 +40,22 @@ public class PlayerPanel extends JPanel {
         pointsInput.setHorizontalAlignment(SwingConstants.CENTER);
         pointsInput.setLocation((this.getWidth()-pointsInputWidth)/2,playerPointsLabel.getHeight()+ playerNameLabel.getHeight());
         this.add(pointsInput);
+    }
+    public void setSize(int x, int y){
+        super.setSize(x,y);
+
+
+        if(pointsInput!=null){
+            pointsInput.setSize(100, pointsInput.getHeight());
+            pointsInput.setLocation((this.getWidth()-pointsInput.getWidth())/2,playerPointsLabel.getHeight()+ playerNameLabel.getHeight());
+
+
+        }
+        if(playerPointsLabel!=null)
+            playerPointsLabel.setSize(x,playerPointsLabel.getHeight());
+        if(playerNameLabel!=null)
+            playerNameLabel.setSize(x,playerNameLabel.getHeight());
 
 
     }
-
 }

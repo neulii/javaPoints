@@ -19,13 +19,6 @@ public class Controller {
 
 		window.repaint();
 
-
-
-
-
-
-
-
 	}
 	
 	

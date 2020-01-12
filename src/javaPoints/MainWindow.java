@@ -2,6 +2,8 @@ package javaPoints;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentAdapter;
+import java.awt.event.ComponentEvent;
 import java.util.Vector;
 
 public class MainWindow {
@@ -10,6 +12,7 @@ public class MainWindow {
 	private JFrame window;
 	private Vector<PlayerPanel> playerFields;
 	private JLabel leadingPoints;
+	int topOffset = 100;
 
 	public MainWindow(PointModel model) {
 
@@ -38,9 +41,16 @@ public class MainWindow {
 		leadingPoints.setFont(new Font("Dialog.bold", Font.PLAIN, 30));
 		leadingPoints.setLocation(0,0);
 
+		window.setMinimumSize(new Dimension(400,window.getHeight()));
 		window.add(leadingPoints);
 
-
+		window.addComponentListener(new ComponentAdapter() {
+			@Override
+			public void componentResized(ComponentEvent e) {
+				super.componentResized(e);
+				sizingPlayerFields();
+			}
+		});
 
 
 		window.setLocationRelativeTo(null);
@@ -68,6 +78,23 @@ public class MainWindow {
 		}
 		else
 			System.out.println("too few players");
+
+	}
+
+	public void sizingPlayerFields(){
+		if(playerFields.size()<2)
+			return;
+		int numberOfPlayers = playerFields.size();
+		float width = window.getWidth()/numberOfPlayers;
+
+		leadingPoints.setSize(window.getWidth(),leadingPoints.getHeight());
+
+		//For every player
+		for (int i = 0; i<numberOfPlayers; i++){
+			PlayerPanel tempPanel = playerFields.elementAt(i);
+			tempPanel.setSize((int)width,tempPanel.getHeight());
+			tempPanel.setLocation(i*(int)width,topOffset);
+		}
 
 	}
 }
