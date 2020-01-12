@@ -41,7 +41,7 @@ public class MainWindow {
 		leadingPoints.setFont(new Font("Dialog.bold", Font.PLAIN, 30));
 		leadingPoints.setLocation(0,0);
 
-		window.setMinimumSize(new Dimension(400,window.getHeight()));
+
 		window.add(leadingPoints);
 
 		window.addComponentListener(new ComponentAdapter() {
@@ -66,6 +66,8 @@ public class MainWindow {
 			int numberOfPlayers = players.size();
 			float width = window.getWidth()/numberOfPlayers;
 
+			window.setMinimumSize(new Dimension(150*players.size(),window.getHeight()));
+			//window.setSize(players.size()*200,window.getHeight());
 			//For every player
 			for (int i = 0; i<numberOfPlayers; i++){
 				PlayerPanel tempPanel = new PlayerPanel(players.elementAt(i),(int)width,height);
@@ -74,6 +76,7 @@ public class MainWindow {
 
 				window.add(tempPanel);
 			}
+			sizingPlayerFields();
 
 		}
 		else
@@ -95,6 +98,10 @@ public class MainWindow {
 			tempPanel.setSize((int)width,tempPanel.getHeight());
 			tempPanel.setLocation(i*(int)width,topOffset);
 		}
+		window.repaint();
+	}
 
+	public Vector<PlayerPanel> getPlayerFields(){
+		return playerFields;
 	}
 }

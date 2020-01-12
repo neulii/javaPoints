@@ -58,4 +58,8 @@ public class PlayerPanel extends JPanel {
 
 
     }
+
+    public JTextField getPointsInputField(){
+        return pointsInput;
+    }
 }
