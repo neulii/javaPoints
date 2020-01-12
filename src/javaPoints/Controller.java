@@ -17,7 +17,7 @@ public class Controller {
 
 		window.addPlayersFields(model.getPlayers());
 
-
+		window.repaint();
 
 
 
