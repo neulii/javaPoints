@@ -2,6 +2,8 @@ package javaPoints;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.util.Vector;
@@ -12,6 +14,18 @@ public class MainWindow {
 	private JFrame window;
 	private Vector<PlayerPanel> playerFields;
 	private JLabel leadingPoints;
+
+	JMenuBar menuBar;
+
+	private JMenu gameMenu;
+	private JMenu infoMenu;
+
+	private JMenuItem gameMenu_NewGame;
+	private JMenuItem gameMenu_ExitGame;
+	private JMenuItem gameMenu_OpenGame;
+	private JMenuItem gameMenu_SaveGame;
+
+
 	int topOffset = 100;
 
 	public MainWindow(PointModel model) {
@@ -51,6 +65,36 @@ public class MainWindow {
 				sizingPlayerFields();
 			}
 		});
+
+		menuBar = new JMenuBar();
+
+		gameMenu = new JMenu("Spiel");
+		menuBar.add(gameMenu);
+
+		gameMenu_NewGame = new JMenuItem("Neues Spiel");
+		gameMenu.add(gameMenu_NewGame);
+		gameMenu_NewGame.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("super");
+
+			}
+		});
+
+		gameMenu_SaveGame = new JMenuItem("Spiel Speichern");
+		gameMenu.add(gameMenu_SaveGame);
+
+		gameMenu_OpenGame = new JMenuItem("Spiel Öffnen");
+		gameMenu.add(gameMenu_OpenGame);
+
+		gameMenu_ExitGame = new JMenuItem("Beenden");
+		gameMenu.add(gameMenu_ExitGame);
+
+
+
+		window.setJMenuBar(menuBar);
+
+
 
 
 		window.setLocationRelativeTo(null);
