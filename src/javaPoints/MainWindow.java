@@ -73,22 +73,20 @@ public class MainWindow {
 
 		gameMenu_NewGame = new JMenuItem("Neues Spiel");
 		gameMenu.add(gameMenu_NewGame);
-		gameMenu_NewGame.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("super");
-
-			}
-		});
+		gameMenu_NewGame.addActionListener(new MenuListener());
 
 		gameMenu_SaveGame = new JMenuItem("Spiel Speichern");
 		gameMenu.add(gameMenu_SaveGame);
+		gameMenu_SaveGame.addActionListener(new MenuListener());
 
 		gameMenu_OpenGame = new JMenuItem("Spiel Öffnen");
 		gameMenu.add(gameMenu_OpenGame);
+		gameMenu_OpenGame.addActionListener(new MenuListener());
 
 		gameMenu_ExitGame = new JMenuItem("Beenden");
 		gameMenu.add(gameMenu_ExitGame);
+		gameMenu_ExitGame.addActionListener(new MenuListener());
+
 
 
 
