@@ -9,15 +9,41 @@ public class Controller {
 		
 		this.model = new PointModel(1000);
 		this.window = new MainWindow(model);
-
-		model.addPlayer(new Player("Stefan"));
-		model.addPlayer(new Player("Birgit"));
-		model.addPlayer(new Player("Florian"));
-
-		window.addPlayersFields(model.getPlayers());
+		
+		
+		
+		window.addMenuListener(new MenuListener(this));
+		
+		
+		//window.addPlayersFields(model.getPlayers());
 
 		
 
+	}
+
+	public void newGameItemAction() {
+		
+		
+	}
+
+	public void exitProgAction() {
+		
+		System.exit(0);
+	}
+
+	public void saveGameAction() {
+		
+		
+	}
+
+	public void openGameAction() {
+		
+		
+	}
+
+	public void aboutProgAction() {
+
+		
 	}
 	
 	
