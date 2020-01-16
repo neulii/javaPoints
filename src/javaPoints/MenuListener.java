@@ -5,36 +5,38 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MenuListener implements ActionListener {
+	
+	private Controller controller;
+	
+	public MenuListener(Controller controller) {
+		this.controller = controller;
+	}
+	
     @Override
     public void actionPerformed(ActionEvent e) {
-        String buttonText = ((JMenuItem)(e.getSource())).getText();
+        String menuItemText = ((JMenuItem)(e.getSource())).getText();
 
-        switch (buttonText){
+        switch (menuItemText){
             case "Neues Spiel":
-                System.out.println("neues spiel");
-
+            	controller.newGameItemAction();
                 break;
 
             case "Beenden":
 
-                System.exit(0);
+                controller.exitProgAction();
                 break;
 
             case "Spiel Speichern":
-
-                System.out.println("speichern");
+            	controller.saveGameAction();
                 break;
 
             case "Spiel Oeffnen":
-                System.out.println("spiel Oeffnen");
+            	controller.openGameAction();
                 break;
                 
             case "About":
-            	System.out.println("About");
+            	controller.aboutProgAction();
             	break;
-
-
         }
-
     }
 }
