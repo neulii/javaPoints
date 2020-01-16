@@ -2,12 +2,16 @@ package javaPoints;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.util.Vector;
 
 public class MainWindow {
 
+	
+	private MenuListener menuListener;
+	
 	private PointModel model;
 	private JFrame window;
 	private Vector<PlayerPanel> playerFields;
@@ -32,40 +36,28 @@ public class MainWindow {
 
 		this.model = model;
 		playerFields= new Vector<PlayerPanel>();
+		
 		initializeWindow();
+		generateMenu();
+		window.revalidate();
 
 	}
+	
+	public void addMenuListener(MenuListener menuListener) {
+		gameMenu_NewGame.addActionListener(menuListener);
+		gameMenu_SaveGame.addActionListener(menuListener);
+		gameMenu_OpenGame.addActionListener(menuListener);
+		gameMenu_ExitGame.addActionListener(menuListener);
+		
+		infoMenu_About.addActionListener(menuListener);
+	}
+	
 	public void repaint(){
 
 			window.repaint();
 	}
-	public void initializeWindow(){
-		
-		window = new JFrame("rummyPoints");
-		window.setSize(800, 500);
-		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		window.setLayout(null);
-
-		leadingPoints = new JLabel("0");
-		leadingPoints.setSize(window.getWidth(),100);
-		leadingPoints.setHorizontalAlignment(SwingConstants.CENTER);
-		leadingPoints.setVerticalAlignment(SwingConstants.CENTER);
-		//leadingPoints.setBackground(Color.blue);
-		leadingPoints.setOpaque(true);
-		leadingPoints.setFont(new Font("Dialog.bold", Font.PLAIN, 30));
-		leadingPoints.setLocation(0,0);
-
-
-		window.add(leadingPoints);
-
-		window.addComponentListener(new ComponentAdapter() {
-			@Override
-			public void componentResized(ComponentEvent e) {
-				super.componentResized(e);
-				sizingPlayerFields();
-			}
-		});
-
+	
+	public void generateMenu() {
 		menuBar = new JMenuBar();
 
 		gameMenu = new JMenu("Spiel");
@@ -77,28 +69,58 @@ public class MainWindow {
 		//GameMenu 
 		gameMenu_NewGame = new JMenuItem("Neues Spiel");
 		gameMenu.add(gameMenu_NewGame);
-		gameMenu_NewGame.addActionListener(new MenuListener());
+		
 
 		gameMenu_SaveGame = new JMenuItem("Spiel Speichern");
 		gameMenu.add(gameMenu_SaveGame);
-		gameMenu_SaveGame.addActionListener(new MenuListener());
+		
 
 		gameMenu_OpenGame = new JMenuItem("Spiel Oeffnen");
 		gameMenu.add(gameMenu_OpenGame);
-		gameMenu_OpenGame.addActionListener(new MenuListener());
+		
 
 		gameMenu_ExitGame = new JMenuItem("Beenden");
 		gameMenu.add(gameMenu_ExitGame);
-		gameMenu_ExitGame.addActionListener(new MenuListener());
+		
 
 		//InfoMenu
 		
 		infoMenu_About = new JMenuItem("About");
 		infoMenu.add(infoMenu_About);
-		infoMenu_About.addActionListener(new MenuListener());
 		
+	
 		
 		window.setJMenuBar(menuBar);
+	}
+	
+	
+	public void initializeWindow(){
+		
+		window = new JFrame("rummyPoints");
+		window.setSize(800, 500);
+		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		window.setLayout(null);
+
+//		leadingPoints = new JLabel("0");
+//		leadingPoints.setSize(window.getWidth(),100);
+//		leadingPoints.setHorizontalAlignment(SwingConstants.CENTER);
+//		leadingPoints.setVerticalAlignment(SwingConstants.CENTER);
+//		//leadingPoints.setBackground(Color.blue);
+//		leadingPoints.setOpaque(true);
+//		leadingPoints.setFont(new Font("Dialog.bold", Font.PLAIN, 30));
+//		leadingPoints.setLocation(0,0);
+
+//		window.add(leadingPoints);
+
+//		window.addComponentListener(new ComponentAdapter() {
+//			@Override
+//			public void componentResized(ComponentEvent e) {
+//				super.componentResized(e);
+//				sizingPlayerFields();
+//			}
+//		});
+
+		
 
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);
