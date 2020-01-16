@@ -2,3 +2,6 @@
 /out/production/javaPoints/
 /javaPoints.iml
 /out/
+/bin/
+/.classpath
+/.project
