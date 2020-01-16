@@ -22,7 +22,7 @@ public class Controller {
 	}
 
 	public void newGameItemAction() {
-		
+		//TODO neues spiel dialog -> wieviele spieler, spielernamen und punkte 
 		
 	}
 
