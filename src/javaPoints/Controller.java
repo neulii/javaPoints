@@ -16,10 +16,7 @@ public class Controller {
 
 		window.addPlayersFields(model.getPlayers());
 
-		window.getPlayerFields().elementAt(0).getPointsInputField().requestFocus();
-
-
-		window.repaint();
+		
 
 	}
 	

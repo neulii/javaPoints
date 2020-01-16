@@ -105,6 +105,10 @@ public class MainWindow {
 		
 	}
 
+	/**
+	 * Add a Panel to the Main Window with the Player data
+	 * @param a Vector with Player
+	 */
 	public void addPlayersFields(Vector<Player> players) {
 
 		if(players.size()>1){
@@ -131,6 +135,9 @@ public class MainWindow {
 
 	}
 
+	/**
+	 * The function resizes the player panels 
+	 */
 	public void sizingPlayerFields(){
 		if(playerFields.size()<2)
 			return;
