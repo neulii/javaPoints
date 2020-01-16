@@ -2,8 +2,6 @@ package javaPoints;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.util.Vector;
@@ -15,7 +13,7 @@ public class MainWindow {
 	private Vector<PlayerPanel> playerFields;
 	private JLabel leadingPoints;
 
-	JMenuBar menuBar;
+	private JMenuBar menuBar;
 
 	private JMenu gameMenu;
 	private JMenu infoMenu;
@@ -24,6 +22,8 @@ public class MainWindow {
 	private JMenuItem gameMenu_ExitGame;
 	private JMenuItem gameMenu_OpenGame;
 	private JMenuItem gameMenu_SaveGame;
+	
+	private JMenuItem infoMenu_About;
 
 
 	int topOffset = 100;
@@ -69,8 +69,12 @@ public class MainWindow {
 		menuBar = new JMenuBar();
 
 		gameMenu = new JMenu("Spiel");
+		infoMenu = new JMenu("Info");
+		
 		menuBar.add(gameMenu);
+		menuBar.add(infoMenu);
 
+		//GameMenu 
 		gameMenu_NewGame = new JMenuItem("Neues Spiel");
 		gameMenu.add(gameMenu_NewGame);
 		gameMenu_NewGame.addActionListener(new MenuListener());
@@ -79,7 +83,7 @@ public class MainWindow {
 		gameMenu.add(gameMenu_SaveGame);
 		gameMenu_SaveGame.addActionListener(new MenuListener());
 
-		gameMenu_OpenGame = new JMenuItem("Spiel Öffnen");
+		gameMenu_OpenGame = new JMenuItem("Spiel Oeffnen");
 		gameMenu.add(gameMenu_OpenGame);
 		gameMenu_OpenGame.addActionListener(new MenuListener());
 
@@ -87,13 +91,14 @@ public class MainWindow {
 		gameMenu.add(gameMenu_ExitGame);
 		gameMenu_ExitGame.addActionListener(new MenuListener());
 
-
-
-
+		//InfoMenu
+		
+		infoMenu_About = new JMenuItem("About");
+		infoMenu.add(infoMenu_About);
+		infoMenu_About.addActionListener(new MenuListener());
+		
+		
 		window.setJMenuBar(menuBar);
-
-
-
 
 		window.setLocationRelativeTo(null);
 		window.setVisible(true);

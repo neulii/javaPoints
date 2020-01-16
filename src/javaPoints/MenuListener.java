@@ -25,9 +25,13 @@ public class MenuListener implements ActionListener {
                 System.out.println("speichern");
                 break;
 
-            case "Spiel Öffnen":
-                System.out.println("spiel öffnen");
+            case "Spiel Oeffnen":
+                System.out.println("spiel Oeffnen");
                 break;
+                
+            case "About":
+            	System.out.println("About");
+            	break;
 
 
         }
