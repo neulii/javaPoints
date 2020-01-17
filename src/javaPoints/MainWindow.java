@@ -96,6 +96,23 @@ public class MainWindow {
 	
 	public void initializeWindow(){
 		
+		//Look and feel
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InstantiationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (UnsupportedLookAndFeelException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		window = new JFrame("rummyPoints");
 		window.setSize(800, 500);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
