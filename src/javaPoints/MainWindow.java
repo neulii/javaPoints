@@ -180,4 +180,8 @@ public class MainWindow {
 	public Vector<PlayerPanel> getPlayerFields(){
 		return playerFields;
 	}
+	
+	public JFrame getFrame() {
+		return window;
+	}
 }
