@@ -1,9 +1,6 @@
 package javaPoints;
 
-import java.awt.Frame;
-
 import javax.swing.JDialog;
-import javax.swing.JFrame;
 
 
 public class PlayerChooser {
