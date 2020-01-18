@@ -5,6 +5,9 @@ import javax.swing.JLabel;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 
 
@@ -17,6 +20,11 @@ public class PlayerChooser {
 	private JTextField playerFourNameInput;
 	private JTextField playerSixNameInput;
 	private JTextField diffPointsInput;
+	private JCheckBox playerOneCheckBox;
+	private JCheckBox playerTwoCheckBox;
+	private JCheckBox playerThreeCheckbox;
+	private JCheckBox playerFourCheckBox;
+	private JCheckBox playerFiveCheckBox;
 	
 	public PlayerChooser(PointModel model, MainWindow window) {
 		
@@ -27,25 +35,25 @@ public class PlayerChooser {
 		playerChooser.setLocationRelativeTo(window.getFrame());
 		playerChooser.getContentPane().setLayout(null);
 		
-		JCheckBox playerOneCheckBox = new JCheckBox("Spieler 1");
+		playerOneCheckBox = new JCheckBox("Spieler 1");
 		playerOneCheckBox.setBounds(35, 60, 97, 23);
 		playerChooser.getContentPane().add(playerOneCheckBox);
 		
-		JCheckBox playerTwoCheckBox = new JCheckBox("Spieler 2");
+		playerTwoCheckBox = new JCheckBox("Spieler 2");
 		playerTwoCheckBox.setBounds(35, 143, 97, 23);
 		playerChooser.getContentPane().add(playerTwoCheckBox);
 		
-		JCheckBox playerThreeCheckbox = new JCheckBox("Spieler 3");
+		playerThreeCheckbox = new JCheckBox("Spieler 3");
 		playerThreeCheckbox.setBounds(35, 226, 97, 23);
 		playerChooser.getContentPane().add(playerThreeCheckbox);
 		
-		JCheckBox PlayerFourCheckBox = new JCheckBox("Spieler 4");
-		PlayerFourCheckBox.setBounds(35, 309, 97, 23);
-		playerChooser.getContentPane().add(PlayerFourCheckBox);
+		playerFourCheckBox = new JCheckBox("Spieler 4");
+		playerFourCheckBox.setBounds(35, 309, 97, 23);
+		playerChooser.getContentPane().add(playerFourCheckBox);
 		
-		JCheckBox PlayerFiveCheckBox = new JCheckBox("Spieler 5");
-		PlayerFiveCheckBox.setBounds(35, 392, 97, 23);
-		playerChooser.getContentPane().add(PlayerFiveCheckBox);
+		playerFiveCheckBox = new JCheckBox("Spieler 5");
+		playerFiveCheckBox.setBounds(35, 392, 97, 23);
+		playerChooser.getContentPane().add(playerFiveCheckBox);
 		
 		playerOneNameInput = new JTextField();
 		playerOneNameInput.setEnabled(false);
@@ -99,5 +107,13 @@ public class PlayerChooser {
 		
 		playerChooser.setVisible(true);
 			
+	}
+	public void addListener(ActionListener listener) {
+		playerOneCheckBox.addActionListener(listener);
+		playerTwoCheckBox.addActionListener(listener);
+		playerThreeCheckbox.addActionListener(listener);
+		playerThreeCheckbox.addActionListener(listener);
+		playerFourCheckBox.addActionListener(listener);
+		
 	}
 }

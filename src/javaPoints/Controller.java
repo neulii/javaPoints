@@ -4,6 +4,8 @@ public class Controller {
 	
 	private PointModel model;
 	private MainWindow window;
+	private PlayerChooser settingsWindow;
+	private SettingsWindowListener chooserListener;
 	
 	public Controller() {
 		
@@ -24,7 +26,11 @@ public class Controller {
 	public void newGameItemAction() {
 		//TODO neues spiel dialog -> wieviele spieler, spielernamen und punkte 
 		
-		new PlayerChooser(model, window);
+		chooserListener = new SettingsWindowListener(this);
+		
+		settingsWindow= new PlayerChooser(model, window);
+		settingsWindow.addListener(chooserListener);
+		
 		
 		
 	}
