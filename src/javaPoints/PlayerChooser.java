@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.JButton;
 
 
 public class PlayerChooser {
@@ -15,7 +16,7 @@ public class PlayerChooser {
 	private JTextField playerThreeNameInput;
 	private JTextField playerFourNameInput;
 	private JTextField playerSixNameInput;
-	private JTextField pointInput;
+	private JTextField diffPointsInput;
 	
 	public PlayerChooser(PointModel model, MainWindow window) {
 		
@@ -81,12 +82,20 @@ public class PlayerChooser {
 		lblNewLabel.setBounds(479, 64, 185, 19);
 		playerChooser.getContentPane().add(lblNewLabel);
 		
-		pointInput = new JTextField();
-		pointInput.setEnabled(false);
-		pointInput.setHorizontalAlignment(SwingConstants.CENTER);
-		pointInput.setBounds(528, 94, 86, 20);
-		playerChooser.getContentPane().add(pointInput);
-		pointInput.setColumns(10);
+		diffPointsInput = new JTextField();
+		diffPointsInput.setEnabled(false);
+		diffPointsInput.setHorizontalAlignment(SwingConstants.CENTER);
+		diffPointsInput.setBounds(528, 94, 86, 20);
+		playerChooser.getContentPane().add(diffPointsInput);
+		diffPointsInput.setColumns(10);
+		
+		JButton cancelButton = new JButton("Abbrechen\r\n");
+		cancelButton.setBounds(459, 392, 89, 23);
+		playerChooser.getContentPane().add(cancelButton);
+		
+		JButton okButton = new JButton("OK\r\n");
+		okButton.setBounds(582, 392, 89, 23);
+		playerChooser.getContentPane().add(okButton);
 		
 		playerChooser.setVisible(true);
 			
