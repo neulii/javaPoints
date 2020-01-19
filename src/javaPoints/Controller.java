@@ -4,21 +4,20 @@ public class Controller {
 	
 	private PointModel model;
 	private MainWindow window;
-	private PlayerChooser settingsWindow;
-	private SettingsWindowListener chooserListener;
+	private SettingsWindow settingsWindow;
+	private SettingsWindowListener settingsListener;
 	
 	public Controller() {
 		
 		this.model = new PointModel(1000);
 		this.window = new MainWindow(model);
 		
-		
-		
 		window.addMenuListener(new MenuListener(this));
 		
 		
-		//window.addPlayersFields(model.getPlayers());
-
+		settingsWindow= new SettingsWindow(model, window);
+		settingsListener = new SettingsWindowListener(this);
+		settingsWindow.addListener(settingsListener);
 		
 
 	}
@@ -26,13 +25,14 @@ public class Controller {
 	public void newGameItemAction() {
 		//TODO neues spiel dialog -> wieviele spieler, spielernamen und punkte 
 		
-		chooserListener = new SettingsWindowListener(this);
-		
-		settingsWindow= new PlayerChooser(model, window);
-		settingsWindow.addListener(chooserListener);
+		settingsWindow.setVisible(true);
 		
 		
 		
+	}
+	
+	public void disposeSettingsWindow() {
+		settingsWindow.setVisible(false);
 	}
 
 	public void exitProgAction() {

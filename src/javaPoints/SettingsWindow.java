@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 
-public class PlayerChooser {
+public class SettingsWindow {
 
 	JDialog playerChooser;
 	private JTextField playerOneNameInput;
@@ -25,8 +25,10 @@ public class PlayerChooser {
 	private JCheckBox playerThreeCheckbox;
 	private JCheckBox playerFourCheckBox;
 	private JCheckBox playerFiveCheckBox;
+	private JButton cancelButton;
+	private JButton okButton;
 	
-	public PlayerChooser(PointModel model, MainWindow window) {
+	public SettingsWindow(PointModel model, MainWindow window) {
 		
 		playerChooser = new JDialog(window.getFrame(),"Spieler Einstellungen",true);
 		
@@ -97,23 +99,30 @@ public class PlayerChooser {
 		playerChooser.getContentPane().add(diffPointsInput);
 		diffPointsInput.setColumns(10);
 		
-		JButton cancelButton = new JButton("Abbrechen\r\n");
+		cancelButton = new JButton("Abbrechen");
 		cancelButton.setBounds(459, 392, 89, 23);
 		playerChooser.getContentPane().add(cancelButton);
 		
-		JButton okButton = new JButton("OK\r\n");
+		okButton = new JButton("OK");
 		okButton.setBounds(582, 392, 89, 23);
 		playerChooser.getContentPane().add(okButton);
-		
-		playerChooser.setVisible(true);
+	
 			
 	}
-	public void addListener(ActionListener listener) {
+	
+	public void addListener(SettingsWindowListener listener) {
 		playerOneCheckBox.addActionListener(listener);
 		playerTwoCheckBox.addActionListener(listener);
 		playerThreeCheckbox.addActionListener(listener);
-		playerThreeCheckbox.addActionListener(listener);
 		playerFourCheckBox.addActionListener(listener);
+		playerFiveCheckBox.addActionListener(listener);
 		
+		okButton.addActionListener(listener);
+		cancelButton.addActionListener(listener);
+		
+	}
+	
+	public void setVisible(boolean visible) {
+		playerChooser.setVisible(visible);
 	}
 }
