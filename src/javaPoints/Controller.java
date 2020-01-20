@@ -16,7 +16,7 @@ public class Controller {
 		
 		
 		settingsWindow= new SettingsWindow(model, window);
-		settingsListener = new SettingsWindowListener(this);
+		settingsListener = new SettingsWindowListener(this, settingsWindow);
 		settingsWindow.addListener(settingsListener);
 		
 

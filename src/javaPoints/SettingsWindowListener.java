@@ -8,13 +8,17 @@ import javax.swing.JDialog;
 public class SettingsWindowListener implements ActionListener {
 
 	Controller controller;
+	SettingsWindow settingsWindow;
 	
-	public SettingsWindowListener(Controller controller) {
+	public SettingsWindowListener(Controller controller, SettingsWindow settingsWindow) {
 		this.controller = controller;
+		this.settingsWindow = settingsWindow;
 	}
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		
+		//System.out.println(e.getActionCommand());
 		
 		switch (e.getActionCommand()) {
 		
@@ -28,7 +32,13 @@ public class SettingsWindowListener implements ActionListener {
 			
 			break;
 
+		default:
+			
+			
+		settingsWindow.checkInputFieldsToBeEnabled();
+		
 		}
+		
 		
 		
 	}

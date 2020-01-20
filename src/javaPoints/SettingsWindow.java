@@ -1,25 +1,27 @@
 package javaPoints;
 
-import javax.swing.JDialog;
-import javax.swing.JLabel;
-import javax.swing.JCheckBox;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-
-import java.awt.event.ActionListener;
+import java.util.Vector;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 
 public class SettingsWindow {
 
-	JDialog playerChooser;
+	private JDialog playerChooser;
+	
 	private JTextField playerOneNameInput;
 	private JTextField playerTwoNameInput;
 	private JTextField playerThreeNameInput;
 	private JTextField playerFourNameInput;
-	private JTextField playerSixNameInput;
+	private JTextField playerFiveNameInput;
+	
 	private JTextField diffPointsInput;
+	
 	private JCheckBox playerOneCheckBox;
 	private JCheckBox playerTwoCheckBox;
 	private JCheckBox playerThreeCheckbox;
@@ -27,6 +29,11 @@ public class SettingsWindow {
 	private JCheckBox playerFiveCheckBox;
 	private JButton cancelButton;
 	private JButton okButton;
+	
+	private Vector<JCheckBox> checkBoxes;
+	private Vector<JTextField> nameTextFields;
+	
+	
 	
 	public SettingsWindow(PointModel model, MainWindow window) {
 		
@@ -81,11 +88,11 @@ public class SettingsWindow {
 		playerFourNameInput.setBounds(138, 310, 257, 20);
 		playerChooser.getContentPane().add(playerFourNameInput);
 		
-		playerSixNameInput = new JTextField();
-		playerSixNameInput.setEnabled(false);
-		playerSixNameInput.setColumns(10);
-		playerSixNameInput.setBounds(138, 393, 257, 20);
-		playerChooser.getContentPane().add(playerSixNameInput);
+		playerFiveNameInput = new JTextField();
+		playerFiveNameInput.setEnabled(false);
+		playerFiveNameInput.setColumns(10);
+		playerFiveNameInput.setBounds(138, 393, 257, 20);
+		playerChooser.getContentPane().add(playerFiveNameInput);
 		
 		JLabel lblNewLabel = new JLabel("Punktedifferenz zum Gewinn");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -93,7 +100,7 @@ public class SettingsWindow {
 		playerChooser.getContentPane().add(lblNewLabel);
 		
 		diffPointsInput = new JTextField();
-		diffPointsInput.setEnabled(false);
+		//diffPointsInput.setEnabled(false);
 		diffPointsInput.setHorizontalAlignment(SwingConstants.CENTER);
 		diffPointsInput.setBounds(528, 94, 86, 20);
 		playerChooser.getContentPane().add(diffPointsInput);
@@ -107,7 +114,6 @@ public class SettingsWindow {
 		okButton.setBounds(582, 392, 89, 23);
 		playerChooser.getContentPane().add(okButton);
 	
-			
 	}
 	
 	public void addListener(SettingsWindowListener listener) {
@@ -124,5 +130,15 @@ public class SettingsWindow {
 	
 	public void setVisible(boolean visible) {
 		playerChooser.setVisible(visible);
+	}
+	
+	public void checkInputFieldsToBeEnabled() {
+		playerOneNameInput.setEnabled(playerOneCheckBox.isSelected());
+		playerTwoNameInput.setEnabled(playerTwoCheckBox.isSelected());
+		playerThreeNameInput.setEnabled(playerThreeCheckbox.isSelected());
+		playerFourNameInput.setEnabled(playerFourCheckBox.isSelected());
+		playerFiveNameInput.setEnabled(playerFiveCheckBox.isSelected());
+		
+		
 	}
 }
