@@ -35,7 +35,7 @@ public class SettingsWindowListener implements ActionListener {
 		default:
 			
 			
-		settingsWindow.checkInputFieldsToBeEnabled();
+		settingsWindow.checkInputFieldsToBeEnabled(e.getActionCommand());
 		
 		}
 		

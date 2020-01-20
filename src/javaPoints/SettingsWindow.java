@@ -107,12 +107,26 @@ public class SettingsWindow {
 		diffPointsInput.setColumns(10);
 		
 		cancelButton = new JButton("Abbrechen");
-		cancelButton.setBounds(459, 392, 89, 23);
+		cancelButton.setBounds(459, 392, 95, 23);
 		playerChooser.getContentPane().add(cancelButton);
 		
 		okButton = new JButton("OK");
-		okButton.setBounds(582, 392, 89, 23);
+		okButton.setBounds(582, 392, 95, 23);
 		playerChooser.getContentPane().add(okButton);
+		
+		checkBoxes = new Vector<JCheckBox>();
+		checkBoxes.add(playerOneCheckBox);
+		checkBoxes.add(playerTwoCheckBox);
+		checkBoxes.add(playerThreeCheckbox);
+		checkBoxes.add(playerFourCheckBox);
+		checkBoxes.add(playerFiveCheckBox);
+		
+		nameTextFields = new Vector<JTextField>();
+		nameTextFields.add(playerOneNameInput);
+		nameTextFields.add(playerTwoNameInput);
+		nameTextFields.add(playerThreeNameInput);
+		nameTextFields.add(playerFourNameInput);
+		nameTextFields.add(playerFiveNameInput);
 	
 	}
 	
@@ -132,13 +146,16 @@ public class SettingsWindow {
 		playerChooser.setVisible(visible);
 	}
 	
-	public void checkInputFieldsToBeEnabled() {
-		playerOneNameInput.setEnabled(playerOneCheckBox.isSelected());
-		playerTwoNameInput.setEnabled(playerTwoCheckBox.isSelected());
-		playerThreeNameInput.setEnabled(playerThreeCheckbox.isSelected());
-		playerFourNameInput.setEnabled(playerFourCheckBox.isSelected());
-		playerFiveNameInput.setEnabled(playerFiveCheckBox.isSelected());
+	public void checkInputFieldsToBeEnabled(String actionCommand) {
 		
-		
+		for(int i = 0;i<checkBoxes.size();i++) {
+			
+			nameTextFields.elementAt(i).setEnabled((checkBoxes.elementAt(i).isSelected()));
+			
+			//set focus to activated nametextfield
+			if(checkBoxes.elementAt(i).getActionCommand().equals(actionCommand)) {
+				nameTextFields.elementAt(i).grabFocus();
+			}	
+		}
 	}
 }
