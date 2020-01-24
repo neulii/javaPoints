@@ -6,12 +6,17 @@ public class Controller {
 	private MainWindow window;
 	private SettingsWindow settingsWindow;
 	private SettingsWindowListener settingsListener;
+
+	private NewGameWindow newGameWindow;
 	
 	public Controller() {
-		
+
 		this.model = new PointModel(1000);
 		this.window = new MainWindow(model);
-		
+
+		this.newGameWindow = new NewGameWindow(window);
+
+
 		window.addMenuListener(new MenuListener(this));
 		
 		
@@ -25,8 +30,9 @@ public class Controller {
 	public void newGameItemAction() {
 		//TODO neues spiel dialog -> wieviele spieler, spielernamen und punkte 
 		
-		settingsWindow.setVisible(true);
-		
+		//settingsWindow.setVisible(true);
+
+		newGameWindow.setVisible(true);
 		
 		
 	}
