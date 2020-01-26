@@ -9,6 +9,7 @@ public class NewGameWindow {
     private JDialog window;
     private MainWindow mainWindow;
     private JButton okButton;
+    private JButton abbrechenButton;
 
     public NewGameWindow(MainWindow mainWindow){
 
