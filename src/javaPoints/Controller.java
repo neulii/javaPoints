@@ -15,6 +15,7 @@ public class Controller {
 		this.window = new MainWindow(model);
 
 		this.newGameWindow = new NewGameWindow(window);
+		newGameWindow.addActionListener(new NewGameWindowListener(newGameWindow,this));
 
 
 		window.addMenuListener(new MenuListener(this));

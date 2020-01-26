@@ -18,5 +18,7 @@ public class NewGameWindowListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        System.out.println(e.getActionCommand());
+
     }
 }
