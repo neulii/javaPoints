@@ -9,7 +9,6 @@ public class NewGameWindow {
     private JDialog window;
     private MainWindow mainWindow;
     private JButton okButton;
-    private Component allWindowComponents[];
 
     public NewGameWindow(MainWindow mainWindow){
 
@@ -26,11 +25,6 @@ public class NewGameWindow {
         okButton = new JButton("test");
         window.add(okButton);
 
-
-
-
-
-
     }
 
     public void setVisible(boolean visible){
@@ -40,13 +34,6 @@ public class NewGameWindow {
 
     public void addActionListener(ActionListener listener){
 
-        allWindowComponents = window.getContentPane().getComponents();
-
-        for(int i = 0; i<allWindowComponents.length; i++){
-            //TODO allWindowComponents[i].a
-
-        }
-
-
+       okButton.addActionListener(listener);
     }
 }
