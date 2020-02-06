@@ -136,10 +136,5 @@ public class NewGameWindow {
        playerSwitcher.addActionListener(listener);
        insideWindow.addMouseListener(new MouseListenerShowCoordinates());
 
-
-
-
-
-
     }
 }

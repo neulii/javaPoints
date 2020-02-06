@@ -1,5 +1,6 @@
 package javaPoints;
 
+import javax.swing.*;
 import java.awt.event.*;
 
 public class NewGameWindowListener implements ActionListener {
@@ -18,6 +19,20 @@ public class NewGameWindowListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         System.out.println(e.getActionCommand());
+
+        switch (e.getActionCommand()){
+
+            case "comboBoxChanged":
+
+                int selectedPlaysers = 0;
+
+                selectedPlaysers = ((JComboBox)e.getSource()).getSelectedIndex()+1;
+                break;
+
+
+
+
+        }
 
     }
 
