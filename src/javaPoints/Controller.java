@@ -1,5 +1,8 @@
 package javaPoints;
 
+import javaPoints.newGameWindow.NewGameWindow;
+import javaPoints.newGameWindow.NewGameWindowListener;
+
 public class Controller {
 	
 	private PointModel model;

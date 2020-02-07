@@ -1,4 +1,6 @@
-package javaPoints;
+package javaPoints.newGameWindow;
+
+import javaPoints.Controller;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -24,9 +26,32 @@ public class NewGameWindowListener implements ActionListener {
 
             case "comboBoxChanged":
 
-                int selectedPlaysers = 0;
+                int selectedPlayers= 0;
 
-                selectedPlaysers = ((JComboBox)e.getSource()).getSelectedIndex()+1;
+                selectedPlayers = ((JComboBox)e.getSource()).getSelectedIndex()+1;
+
+                switch (selectedPlayers){
+                    case 1:
+                        System.out.println( "erste auswahl");
+                        break;
+
+                    case 2:
+
+                        break;
+
+                    case 3:
+                        break;
+
+                    case 4:
+                        break;
+
+                }
+
+
+
+
+
+
                 break;
 
 

@@ -1,4 +1,7 @@
-package javaPoints;
+package javaPoints.newGameWindow;
+
+import javaPoints.MainWindow;
+import javaPoints.MouseListenerShowCoordinates;
 
 import javax.swing.*;
 import java.awt.*;
