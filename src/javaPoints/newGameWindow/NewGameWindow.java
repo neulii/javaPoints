@@ -2,11 +2,13 @@ package javaPoints.newGameWindow;
 
 import javaPoints.MainWindow;
 import javaPoints.MouseListenerShowCoordinates;
+import javaPoints.Player;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class NewGameWindow {
 
@@ -28,7 +30,7 @@ public class NewGameWindow {
     private JTextField playerThreeNameInputField;
     private JTextField playerFourNameInputField;
 
-    private PlayerInputLine pTest;
+    private ArrayList<PlayerInputLine> playerInputLines;
 
 
     private Dimension buttonSize = new Dimension(100,35);
@@ -41,7 +43,7 @@ public class NewGameWindow {
         window = new JDialog(mainWindow.getFrame(),"Neues Spiel", true);
         window.setTitle("Neues Spiel erstellen:");
 
-        pTest = new PlayerInputLine("Spieler Name",10,100,25);
+
 
 
         insideWindow = new JPanel();
@@ -49,7 +51,7 @@ public class NewGameWindow {
         window.add(insideWindow);
         window.pack();
 
-        insideWindow.add(pTest);
+
 
         window.setSize(500,400);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -77,7 +79,7 @@ public class NewGameWindow {
 
         playerNumbersLabel = new JLabel("Anzahl Spieler:");
         playerNumbersLabel.setBounds(30,50,100,25);
-//        insideWindow.add(playerNumbersLabel);
+        insideWindow.add(playerNumbersLabel);
 
 
         String [] playerSwitcherNumbers = {"1","2","3","4"};
@@ -86,60 +88,42 @@ public class NewGameWindow {
         playerSwitcher.setBounds(150,50,50,25);
         insideWindow.add(playerSwitcher);
 
-        //Player one elements
-
-            playerOneNameLabel = new JLabel("Spieler 1");
-            playerOneNameLabel.setBounds(30,100,100,25);
-            //playerOneNameLabel.setEnabled(false);
-            //insideWindow.add(playerOneNameLabel);
-
-            playerOneNameInputField = new JTextField();
-            playerOneNameInputField.setBounds(150,100,150,25);
-            //insideWindow.add(playerOneNameInputField);
+        //generate playerinputlines
+        playerInputLines = new ArrayList<PlayerInputLine>();
 
 
-        //player two elements
+        for(int i = 0; i<4; i++){
 
-            playerTwoNameLabel = new JLabel("Spieler 2");
-            playerTwoNameLabel.setBounds(30,140,100,25);
-            playerTwoNameLabel.setEnabled(false);
-            //insideWindow.add(playerTwoNameLabel);
+            String labelText = "Spieler " + Integer.toString(i+1) + ":";
 
-            playerTwoNameInputField = new JTextField();
-            playerTwoNameInputField.setBounds(150,140,150,25);
-            playerTwoNameInputField.setEnabled(false);
-            //insideWindow.add(playerTwoNameInputField);
+            PlayerInputLine temp = new PlayerInputLine(labelText,20,100+i*40,insideWindow.getWidth()-40, 30);
 
-        //Player three elements
+            playerInputLines.add(temp);
+            if(!(i==0))
+                temp.enableInputLine(false);
+            insideWindow.add(temp);
+        }
 
-            playerThreeNameLabel = new JLabel("Spieler 3");
-            playerThreeNameLabel.setBounds(30,180,100,25);
-            playerThreeNameLabel.setEnabled(false);
-        //insideWindow.add(playerThreeNameLabel);
-
-            playerThreeNameInputField = new JTextField();
-            playerThreeNameInputField.setBounds(150,180,150,25);
-            playerThreeNameInputField.setEnabled(false);
-            //insideWindow.add(playerThreeNameInputField);
-
-        //player four elements
-
-            playerFourNameLabel = new JLabel("Spieler 4");
-            playerFourNameLabel.setBounds(30,220,100,25);
-            playerFourNameLabel.setEnabled(false);
-//            insideWindow.add(playerFourNameLabel);
-
-            playerFourNameInputField = new JTextField();
-            playerFourNameInputField.setBounds(150,220,150,25);
-            playerFourNameInputField.setEnabled(false);
-//            insideWindow.add(playerFourNameInputField);
-
-
+        window.validate();
 
     }
 
     public void setVisible(boolean visible){
         window.setVisible(visible);
+
+    }
+
+    public void enableInputLines(int numberOfInputLines){
+
+        //enable
+        for(int i = 0;i<numberOfInputLines; i++){
+            playerInputLines.get(i).enableInputLine(true);
+
+        }
+        //disable the rest
+        for(int i = numberOfInputLines; i<playerInputLines.size();i++){
+            playerInputLines.get(i).enableInputLine(false);
+        }
 
     }
 

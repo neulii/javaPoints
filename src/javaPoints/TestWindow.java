@@ -15,7 +15,7 @@ public class TestWindow {
        window.setLayout(null);
 
 
-       PlayerInputLine pinput = new PlayerInputLine("spieler: ", 20,100,50);
+       PlayerInputLine pinput = new PlayerInputLine("spieler: ", 20,100,300,30);
 
        pinput.enableInputLine(false);
 

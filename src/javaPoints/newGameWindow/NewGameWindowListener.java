@@ -20,7 +20,7 @@ public class NewGameWindowListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        System.out.println(e.getActionCommand());
+        //System.out.println(e.getActionCommand());
 
         switch (e.getActionCommand()){
 
@@ -30,33 +30,9 @@ public class NewGameWindowListener implements ActionListener {
 
                 selectedPlayers = ((JComboBox)e.getSource()).getSelectedIndex()+1;
 
-                switch (selectedPlayers){
-                    case 1:
-                        System.out.println( "erste auswahl");
-                        break;
-
-                    case 2:
-
-                        break;
-
-                    case 3:
-                        break;
-
-                    case 4:
-                        break;
-
-                }
-
-
-
-
-
+               newGameWindow.enableInputLines(selectedPlayers);
 
                 break;
-
-
-
-
         }
 
     }

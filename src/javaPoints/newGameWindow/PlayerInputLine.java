@@ -8,21 +8,19 @@ public class PlayerInputLine extends JPanel{
     JLabel playerNumberLabel;
     JTextField playerNameInput;
 
-    public PlayerInputLine(String labelText, int offsetLeft, int yPosInputLine, int heightOfLine){
+    public PlayerInputLine(String labelText, int offsetLeft, int yPosInputLine, int widthOfLine, int heightOfLine){
         this.setBackground(Color.lightGray);
-        this.setBounds(offsetLeft,yPosInputLine,350,heightOfLine);
+        this.setBounds(offsetLeft,yPosInputLine,widthOfLine,heightOfLine);
         this.setLayout(null);
 
         playerNumberLabel = new JLabel(labelText);
-
-        System.out.println(playerNumberLabel.getWidth());
-        playerNumberLabel.setBounds(20,0,100,heightOfLine);
+        playerNumberLabel.setBounds(20,0,widthOfLine/3,heightOfLine);
 
 
         this.add(playerNumberLabel);
 
         playerNameInput = new JTextField();
-        playerNameInput.setBounds(100,0,250,heightOfLine);
+        playerNameInput.setBounds(widthOfLine/3,0,widthOfLine/3*2,heightOfLine);
         playerNameInput.setHorizontalAlignment(JTextField.CENTER);
 
         playerNameInput.setBackground(new Color(99, 63,100));
