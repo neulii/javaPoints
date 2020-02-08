@@ -28,19 +28,28 @@ public class NewGameWindow {
     private JTextField playerThreeNameInputField;
     private JTextField playerFourNameInputField;
 
+    private PlayerInputLine pTest;
+
 
     private Dimension buttonSize = new Dimension(100,35);
 
     public NewGameWindow(MainWindow mainWindow){
 
+
+
         this.mainWindow = mainWindow;
         window = new JDialog(mainWindow.getFrame(),"Neues Spiel", true);
         window.setTitle("Neues Spiel erstellen:");
+
+        pTest = new PlayerInputLine("Spieler Name",10,100,25);
+
 
         insideWindow = new JPanel();
         insideWindow.setLayout(null);
         window.add(insideWindow);
         window.pack();
+
+        insideWindow.add(pTest);
 
         window.setSize(500,400);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -68,7 +77,7 @@ public class NewGameWindow {
 
         playerNumbersLabel = new JLabel("Anzahl Spieler:");
         playerNumbersLabel.setBounds(30,50,100,25);
-        insideWindow.add(playerNumbersLabel);
+//        insideWindow.add(playerNumbersLabel);
 
 
         String [] playerSwitcherNumbers = {"1","2","3","4"};
@@ -82,11 +91,11 @@ public class NewGameWindow {
             playerOneNameLabel = new JLabel("Spieler 1");
             playerOneNameLabel.setBounds(30,100,100,25);
             //playerOneNameLabel.setEnabled(false);
-            insideWindow.add(playerOneNameLabel);
+            //insideWindow.add(playerOneNameLabel);
 
             playerOneNameInputField = new JTextField();
             playerOneNameInputField.setBounds(150,100,150,25);
-            insideWindow.add(playerOneNameInputField);
+            //insideWindow.add(playerOneNameInputField);
 
 
         //player two elements
@@ -94,36 +103,38 @@ public class NewGameWindow {
             playerTwoNameLabel = new JLabel("Spieler 2");
             playerTwoNameLabel.setBounds(30,140,100,25);
             playerTwoNameLabel.setEnabled(false);
-            insideWindow.add(playerTwoNameLabel);
+            //insideWindow.add(playerTwoNameLabel);
 
             playerTwoNameInputField = new JTextField();
             playerTwoNameInputField.setBounds(150,140,150,25);
             playerTwoNameInputField.setEnabled(false);
-            insideWindow.add(playerTwoNameInputField);
+            //insideWindow.add(playerTwoNameInputField);
 
         //Player three elements
 
             playerThreeNameLabel = new JLabel("Spieler 3");
             playerThreeNameLabel.setBounds(30,180,100,25);
             playerThreeNameLabel.setEnabled(false);
-            insideWindow.add(playerThreeNameLabel);
+        //insideWindow.add(playerThreeNameLabel);
 
             playerThreeNameInputField = new JTextField();
             playerThreeNameInputField.setBounds(150,180,150,25);
             playerThreeNameInputField.setEnabled(false);
-            insideWindow.add(playerThreeNameInputField);
+            //insideWindow.add(playerThreeNameInputField);
 
         //player four elements
 
             playerFourNameLabel = new JLabel("Spieler 4");
             playerFourNameLabel.setBounds(30,220,100,25);
             playerFourNameLabel.setEnabled(false);
-            insideWindow.add(playerFourNameLabel);
+//            insideWindow.add(playerFourNameLabel);
 
             playerFourNameInputField = new JTextField();
             playerFourNameInputField.setBounds(150,220,150,25);
             playerFourNameInputField.setEnabled(false);
-            insideWindow.add(playerFourNameInputField);
+//            insideWindow.add(playerFourNameInputField);
+
+
 
     }
 

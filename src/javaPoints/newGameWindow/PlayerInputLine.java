@@ -1,28 +1,39 @@
 package javaPoints.newGameWindow;
 
 import javax.swing.*;
+import java.awt.*;
 
-public class PlayerInputLine {
+public class PlayerInputLine extends JPanel{
 
     JLabel playerNumberLabel;
     JTextField playerNameInput;
 
-    int offSetLeft = 0;
-    int heightInputLine = 0;
-
-    public PlayerInputLine(String labelText, int offsetLeft, int yPosInputLine){
-
-        this.offSetLeft = offsetLeft;
-        this.heightInputLine = yPosInputLine;
+    public PlayerInputLine(String labelText, int offsetLeft, int yPosInputLine, int heightOfLine){
+        this.setBackground(Color.lightGray);
+        this.setBounds(offsetLeft,yPosInputLine,350,heightOfLine);
+        this.setLayout(null);
 
         playerNumberLabel = new JLabel(labelText);
-        playerNumberLabel.setBounds(offsetLeft, yPosInputLine,100,25);
+
+        System.out.println(playerNumberLabel.getWidth());
+        playerNumberLabel.setBounds(20,0,100,heightOfLine);
+
+
+        this.add(playerNumberLabel);
 
         playerNameInput = new JTextField();
-        playerNameInput.setBounds(offsetLeft+150,yPosInputLine,100,25);
+        playerNameInput.setBounds(100,0,250,heightOfLine);
+        playerNameInput.setHorizontalAlignment(JTextField.CENTER);
+
+        playerNameInput.setBackground(new Color(99, 63,100));
+        playerNameInput.setOpaque(true);
+
+        this.add(playerNameInput);
+
     }
 
     public void enableInputLine(boolean enable){
+        this.setEnabled(enable);
         playerNameInput.setEnabled(enable);
         playerNumberLabel.setEnabled(enable);
     }
