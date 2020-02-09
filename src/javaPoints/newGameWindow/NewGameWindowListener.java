@@ -20,10 +20,11 @@ public class NewGameWindowListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        //System.out.println(e.getActionCommand());
+        System.out.println(e.getActionCommand());
 
         switch (e.getActionCommand()){
 
+            //case for combobox changed
             case "comboBoxChanged":
 
                 int selectedPlayers= 0;
@@ -35,6 +36,23 @@ public class NewGameWindowListener implements ActionListener {
 
                 newGameWindow.setVisible(true);
                 break;
+
+            //OK button
+            case "Ok" :
+
+
+
+                break;
+            // abbrechen buttton
+            case "Abbrechen" :
+
+                newGameWindow.setVisible(false);
+                newGameWindow.clearEntrys();
+
+
+                break;
+
+
         }
 
     }

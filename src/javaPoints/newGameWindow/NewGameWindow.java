@@ -132,4 +132,13 @@ public class NewGameWindow {
        insideWindow.addMouseListener(new MouseListenerShowCoordinates());
 
     }
+    public void clearEntrys(){
+
+        for(int i = 0; i<playerInputLines.size(); i++){
+
+            playerInputLines.get(i).clearInput();
+        }
+
+    }
+
 }

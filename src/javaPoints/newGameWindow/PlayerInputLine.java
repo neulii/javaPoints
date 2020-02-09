@@ -45,4 +45,9 @@ public class PlayerInputLine extends JPanel{
         super.requestFocus();
         playerNameInput.requestFocus();
     }
+
+    public void clearInput(){
+        playerNameInput.setText("");
+
+    }
 }
