@@ -43,15 +43,10 @@ public class NewGameWindow {
         window = new JDialog(mainWindow.getFrame(),"Neues Spiel", true);
         window.setTitle("Neues Spiel erstellen:");
 
-
-
-
         insideWindow = new JPanel();
         insideWindow.setLayout(null);
         window.add(insideWindow);
         window.pack();
-
-
 
         window.setSize(500,400);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -104,12 +99,14 @@ public class NewGameWindow {
             insideWindow.add(temp);
         }
 
+        playerInputLines.get(0).requestFocus();
         window.validate();
 
     }
 
     public void setVisible(boolean visible){
         window.setVisible(visible);
+        playerInputLines.get(0).requestFocus();
 
     }
 

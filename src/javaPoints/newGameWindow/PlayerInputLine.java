@@ -23,8 +23,12 @@ public class PlayerInputLine extends JPanel{
         playerNameInput.setBounds(widthOfLine/3,0,widthOfLine/3*2,heightOfLine);
         playerNameInput.setHorizontalAlignment(JTextField.CENTER);
 
-        playerNameInput.setBackground(new Color(99, 63,100));
-        playerNameInput.setOpaque(true);
+        //change font size
+        Font myFont = playerNameInput.getFont();
+        playerNameInput.setFont(new Font(myFont.getFontName(),myFont.getStyle(),16));
+
+//        playerNameInput.setBackground(new Color(99, 63,100));
+//        playerNameInput.setOpaque(true);
 
         this.add(playerNameInput);
 
@@ -36,4 +40,9 @@ public class PlayerInputLine extends JPanel{
         playerNumberLabel.setEnabled(enable);
     }
 
+    @Override
+    public void requestFocus() {
+        super.requestFocus();
+        playerNameInput.requestFocus();
+    }
 }

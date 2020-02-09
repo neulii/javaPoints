@@ -30,8 +30,10 @@ public class NewGameWindowListener implements ActionListener {
 
                 selectedPlayers = ((JComboBox)e.getSource()).getSelectedIndex()+1;
 
-               newGameWindow.enableInputLines(selectedPlayers);
+                newGameWindow.enableInputLines(selectedPlayers);
+                //just to request focus to first input line after switching players
 
+                newGameWindow.setVisible(true);
                 break;
         }
 
